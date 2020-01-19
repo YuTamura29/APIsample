@@ -16,10 +16,16 @@ WORKDIR /worker
 #    && pipenv install pandas \
 #    && pipenv install cerberus
 
+# install library
 COPY ./Pipfile ./Pipfile.lock ./
 
 RUN set -ex; \
   \
   pipenv install --system --deploy
 
+# copy app file
+COPY ./app.py ./
+
 EXPOSE 5042
+
+CMD ["python", "-u", "app.py"]
