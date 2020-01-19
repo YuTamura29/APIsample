@@ -7,7 +7,7 @@ RUN set -ex; \
 
 WORKDIR /worker
 
-# make Pipfile file
+# make Pipfile
 #RUN pipenv install numpy \
 #    && pipenv install pytest \
 #    && pipenv install autopep8 \
@@ -25,6 +25,9 @@ RUN set -ex; \
 
 # copy app file
 COPY ./app.py ./
+
+# copy test file
+COPY ./tests/ ./tests
 
 EXPOSE 5042
 

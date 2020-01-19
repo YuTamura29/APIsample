@@ -3,6 +3,9 @@ services:
   app:
     build:
       context: .
+    # apply to local change
+    volumes:
+      - .:/worker
     ports:
       - "5042:5042"
     environment:
