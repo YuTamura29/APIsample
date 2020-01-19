@@ -5,7 +5,7 @@ RUN set -ex; \
   pip install --upgrade pip \
   && pip install pipenv
 
-WORKDIR /worker
+WORKDIR /src
 
 # make Pipfile
 #RUN pipenv install numpy \
@@ -17,14 +17,14 @@ WORKDIR /worker
 #    && pipenv install cerberus
 
 # install library
-COPY ./Pipfile ./Pipfile.lock ./
+COPY ./src/Pipfile ./src/Pipfile.lock ./
 
 RUN set -ex; \
   \
   pipenv install --system --deploy
 
 # copy app file
-COPY ./app.py ./
+COPY ./src/app.py ./
 
 # copy test file
 COPY ./tests/ ./tests
