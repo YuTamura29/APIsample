@@ -22,6 +22,7 @@ jobs:
           name: prepare pytest
           command: |
             cp -r ./tests/ ./src/tests/
+            echo "export PYTHONPATH=./src:$PYTHONPATH" >> $BASH_ENV
       - run:
           name: run pytest
           working_directory: src
