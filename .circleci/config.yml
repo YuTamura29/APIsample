@@ -21,6 +21,6 @@ jobs:
       - run:
           name: install dependencies and run pytest
           command: |
-            cp -r　./tests/ ./src/tests/
+            cp -r ./tests/ ./src/tests/
             cd ./src
             pipenv run pytest tests
