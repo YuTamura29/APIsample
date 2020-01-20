@@ -16,6 +16,7 @@ jobs:
       - run:
           name: run flake8
           command: |
+            cd ./src
             pipenv run flake8 --max-line-length=300 --ignore=F401, F821
       - run:
           name: install dependencies and run pytest
