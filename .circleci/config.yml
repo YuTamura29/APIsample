@@ -9,13 +9,12 @@ jobs:
           name: install pipenv
           command: sudo pip install pipenv
       - run:
-          name: install dependencies
-          command: |
-            cd ./src
-            pipenv install
-      - run:
-          name: run tests
+          name: install dependencies and run flake8
           command: |
            cd ./src
+           pipenv install
            pipenv run flake8 --max-line-length=300 --ignore=F401, F821
-           python -m pytest
+      - run:
+          name: run pytest
+          command: |
+           pipenv run python -m pytest
