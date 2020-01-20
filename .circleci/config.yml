@@ -11,10 +11,12 @@ jobs:
       - run:
           name: install dependencies and run flake8
           command: |
-           cd ./src
-           pipenv install
-           pipenv run flake8 --max-line-length=300 --ignore=F401, F821
+            cd ./src
+            pipenv install
+            pipenv run flake8 --max-line-length=300 --ignore=F401, F821
       - run:
           name: run pytest
           command: |
-           pipenv run pytest
+            cd ./src
+            pipenv install
+            pipenv run pytest
