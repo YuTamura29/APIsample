@@ -2,6 +2,7 @@ import responder
 
 api = responder.API()
 
+
 @api.route("/_healthcheck")
 async def healthcheck(req, resp):
     params = {k: v for k, v in req.params.items()}

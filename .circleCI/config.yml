@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.5-stretch
+    steps:
+      - checkout
+      - run:
+          name: install pipenv
+          command: sudo pip install pipenv
+      - run:
+        name: install dependencies
+        command: |
+          cd ./analytics
+          pipenv install
+      - run:
+          name: run tests
+          command: |
+           pipenv run flake8 --max-line-length=300 --ignore=F401, F821
+           python -m pytest
